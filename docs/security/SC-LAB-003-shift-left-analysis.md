@@ -39,7 +39,7 @@ Programación defensiva por defecto: Prácticas como la sanitización estricta d
 Visibilidad con SBOM (Software Bill of Materials): Generar el inventario de dependencias de forma automatizada en el pipeline permite que, al publicarse un CVE, identifiques en segundos cuáles de tus aplicaciones contienen el componente afectado.
 Remediación en tiempo récord: La verdadera fuerza de Shift Left en este escenario es el Time-to-Remediate (TTR). Con una suite de pruebas de seguridad y regresión ya integrada en el CI/CD, actualizar la librería afectada, validar y desplegar el parche toma horas en lugar de semanas.
 
-'''
+```mermaid
 flowchart TD
     
     subgraph PREVENCION["1. Prevención e Inventario (Shift Left)"]
@@ -64,6 +64,6 @@ flowchart TD
 
     class A,B,C,E,F,G,H,I shiftleft;
     class D event;
-    '''
+```
 
 ## Reflexión
