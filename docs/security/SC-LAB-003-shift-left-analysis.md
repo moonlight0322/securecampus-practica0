@@ -41,6 +41,7 @@ Remediación en tiempo récord: La verdadera fuerza de Shift Left en este escena
 
 '''
 flowchart TD
+    
     subgraph PREVENCION["1. Prevención e Inventario (Shift Left)"]
         A[Desarrollo de Código] --> B[Generación de SBOM y Análisis SCA]
         B --> C[Código en Producción]
