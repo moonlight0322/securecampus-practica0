@@ -1,13 +1,13 @@
 # SC-LAB-001
 ## Consulta de perfiles
 Equipo:
-Ariadna Itzel Alvarez
-Montserrat Hernandez
-Luis Antonio Rivera
+Ariadna Itzel Alvarez, 
+Montserrat Hernandez, 
+Luis Antonio Rivera, 
 Carlos Santana
 
 Fecha:
-11 de Septiembbre de 2026
+11 de Septiembre de 2026
 
 | Elemento       | Respuesta del equipo | Justificación |
 |----------------|----------------------|----------------|
