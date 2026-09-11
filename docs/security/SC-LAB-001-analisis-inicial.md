@@ -19,6 +19,15 @@ Fecha:
 | **Riesgo** | Alto, probabilidad alta (el ataque es fácil de ejecutar) combinada con impacto medio-alto. | No requiere conocimientos técnicos avanzados, solo editar la URL, por lo que cualquier usuario del sistema podría explotarlo, y el número de perfiles afectados podría ser todo el estudiantado. |
 | **Control** | Implementar control de acceso a nivel de objeto (autorización) en el servidor: verificar que el `id` solicitado pertenezca al usuario autenticado (o a un rol con permiso), usar identificadores no predecibles (UUID en vez de IDs secuenciales), y registrar/auditar accesos a perfiles. | Estas medidas atacan la causa raíz (falta de verificación de autorización) en vez de solo ocultar el problema, y dificultan además la enumeración de recursos. |
 
+## 5. Reto por equipo: Escenarios
+
+| Escenario | Activo | Amenaza | Vulnerabilidad | Ataque | Impacto | Control |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **1. Calificaciones**| Historial académico. | Alumno o profesor no asignado. | Ausencia de validación. | Alteración de los parámetros de la solicitud. | Pérdida de seguridad en las calificaciones. | Validar relación profesor-grupo antes de aceptar la modificación. |
+| **2. Documentos** | Archivos subidos al sistema. | Atacante externo. | Almacenamiento público con nombres de archivo predecibles. | Descarga forzada. | Fuga de documentos sensibles. | Usar almacenamiento privado con validación de sesión. |
+| **3. Autenticación** | Cuentas de usuario. | Atacante automatizado. | Falta de límite de peticiones en login. | Fuerza bruta. | Compromiso total de la cuenta. | Bloqueo temporal de cuenta tras 5 intentos fallidos y uso de CAPTCHA. |
+| **4. Logs de Auditoría** | Registros del sistema. | Administrador comprometido. | Logs almacenados en texto plano con permisos de escritura. | Borrado o alteración del archivo de logs. | Pérdida de trazabilidad para investigar incidentes. | Envío de logs a un SIEM externo de solo lectura. |
+
 
 ## 3. Preguntas de Reflexión
 
