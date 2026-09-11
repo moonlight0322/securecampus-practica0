@@ -27,11 +27,11 @@ RF-010: «SecureCampus deberá permitir al usuario recuperar su contraseña». E
 
 ## Reto integral - 3 situaciones
 
-| Caso                    | Origen                                            | Descubrimiento                                         | Retrabajo / Impacto                                                                                                                                                                   | Actividad Shift Left                                                                                                                                                    | Control posterior                                                                                                                      |
-| ----------------------- | ------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **A · Administrador**   | Requisitos / Diseño[cite: 3]                      | Pruebas o Producción[cite: 3]                          | Rediseño del esquema de autorización (RBAC), reescritura de controladores de la API, modificación de vistas frontend y rehacer casos de prueba de integración[cite: 3].               | Definir matrices de control de acceso granulares (separación de lecturas/escrituras) desde la fase de requisitos[cite: 3].                                              | Monitoreo y auditoría de eventos de autorización fallidos (`403 Forbidden`) en producción mediante WAF o SIEM[cite: 3].                |
-| **B · Upload**[cite: 3] | Requisitos / Diseño[cite: 3]                      | Pruebas (Pentest) o Producción[cite: 3]                | Modificar controladores de subida, agregar librerías de desinfección/validación MIME, reconfigurar el almacenamiento (S3) y migrar/desinfectar archivos subidos previamente[cite: 3]. | Establecer políticas de carga segura (lista blanca de extensiones, límite de tamaño, almacenamiento fuera del _web root_ y renombrado aleatorio) en el diseño[cite: 3]. | Escaneo antivirus/antimalware asíncrono en el servidor de archivos y monitoreo de ejecución no autorizada[cite: 3].                    |
-| **C · Dependencia**     | Operación / Mantenimiento (Evolución de amenazas) | Producción (8 meses después de incorporar la librería) | Actualizar la versión de la biblioteca, validar compatibilidad con el código actual, ejecutar regresiones completas y actualizar contenedores/servidores.                             | Implementar análisis de composición de software (SCA) y gestión de dependencias (_Software Bill of Materials_ - SBOM) en el pipeline de CI/CD.                          | Alertas automatizadas de vulnerabilidades (ej. GitHub Dependabot), parches periódicos y monitoreo de vulnerabilidades conocidas (CVE). |
+| Caso                  | Origen                                            | Descubrimiento                                         | Retrabajo / Impacto                                                                                                                                                          | Actividad Shift Left                                                                                                                                           | Control posterior                                                                                                                      |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **A · Administrador** | Requisitos / Diseño                               | Pruebas o Producción                                   | Rediseño del esquema de autorización (RBAC), reescritura de controladores de la API, modificación de vistas frontend y rehacer casos de prueba de integración.               | Definir matrices de control de acceso granulares (separación de lecturas/escrituras) desde la fase de requisitos.                                              | Monitoreo y auditoría de eventos de autorización fallidos (`403 Forbidden`) en producción mediante WAF o SIEM.                         |
+| **B · Upload**        | Requisitos / Diseño                               | Pruebas (Pentest) o Producción                         | Modificar controladores de subida, agregar librerías de desinfección/validación MIME, reconfigurar el almacenamiento (S3) y migrar/desinfectar archivos subidos previamente. | Establecer políticas de carga segura (lista blanca de extensiones, límite de tamaño, almacenamiento fuera del _web root_ y renombrado aleatorio) en el diseño. | Escaneo antivirus/antimalware asíncrono en el servidor de archivos y monitoreo de ejecución no autorizada.                             |
+| **C · Dependencia**   | Operación / Mantenimiento (Evolución de amenazas) | Producción (8 meses después de incorporar la librería) | Actualizar la versión de la biblioteca, validar compatibilidad con el código actual, ejecutar regresiones completas y actualizar contenedores/servidores.                    | Implementar análisis de composición de software (SCA) y gestión de dependencias (_Software Bill of Materials_ - SBOM) en el pipeline de CI/CD.                 | Alertas automatizadas de vulnerabilidades (ej. GitHub Dependabot), parches periódicos y monitoreo de vulnerabilidades conocidas (CVE). |
 
 ## Escalera de costo cualitativa
 
@@ -39,16 +39,13 @@ RF-010: «SecureCampus deberá permitir al usuario recuperar su contraseña». E
 
 **¿Puede Shift Left ayudar con una vulnerabilidad que todavía no existía públicamente cuando desarrollamos?**
 El enfoque Shift Left no es una bola de cristal para predecir fallas futuras, sino una estrategia de resiliencia y velocidad de respuesta cuando una nueva vulnerabilidad (Zero-Day o un nuevo registro CVE) sale a la luz.
-
 ¿Cómo ayuda Shift Left ante lo desconocido?
 Reducción de la superficie de ataque: Al aplicar modelado de amenazas, principio de menor privilegio y hardening desde el diseño, se aíslan los componentes. Si una función se vuelve vulnerable mañana, el impacto potencial en el resto del sistema es mucho menor.
 Programación defensiva por defecto: Prácticas como la sanitización estricta de entradas y la gestión segura de memoria bloquean la ejecución de muchos exploits, incluso si la falla específica aún no ha sido categorizada.
-
 Visibilidad con SBOM (Software Bill of Materials): Generar el inventario de dependencias de forma automatizada en el pipeline permite que, al publicarse un CVE, identifiques en segundos cuáles de tus aplicaciones contienen el componente afectado.
-
 Remediación en tiempo récord: La verdadera fuerza de Shift Left en este escenario es el Time-to-Remediate (TTR). Con una suite de pruebas de seguridad y regresión ya integrada en el CI/CD, actualizar la librería afectada, validar y desplegar el parche toma horas en lugar de semanas.
 
-```mermaid
+'''
 flowchart TD
 
     subgraph PREVENCION["1. Prevención e Inventario (Shift Left)"]
@@ -73,6 +70,6 @@ flowchart TD
 
     class A,B,C,E,F,G,H,I shiftleft;
     class D event;
-```
+    '''
 
 ## Reflexión
