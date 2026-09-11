@@ -8,7 +8,7 @@ Diseñar, construir, asegurar, probar y documentar una ap1licación aplicando pr
 - Moon
 - Luis
 - Ariadna
--Carlos
+- Carlos
 
 
 ## Seguridad
