@@ -1,5 +1,14 @@
 # SC-LAB-001
 ## Consulta de perfiles
+##Equipo:
+Ariadna Itzel Alvarez
+Montserrat Hernandez
+Luis Antonio Rivera
+Carlos Santana
+
+##Fecha:
+11 de Septiembbre de 2026
+
 | Elemento       | Respuesta del equipo | Justificación |
 |----------------|----------------------|----------------|
 | **Activo** | La información personal y académica de los estudiantes almacenada en los perfiles | Es el recurso de valor que el sistema debe proteger; en este caso, los datos de identidad y desempeño de cada alumno. |
