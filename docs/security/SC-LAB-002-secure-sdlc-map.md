@@ -29,10 +29,10 @@ Carlos Santana
 
 ## Clasificación conceptual
 
-| Decisión tomada en el mapa                                                                               | Concepto que representa | Justificación                                                                                                                                                                            |
-| :------------------------------------------------------------------------------------------------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Uso de pre-commit hooks (`gitleaks`) para evitar subir tokens al repositorio (Escenario B).**       | **Shift Left**          | Traslada la detección de la vulnerabilidad al punto más temprano posible del ciclo de vida (el entorno local del desarrollador), impidiendo que el secreto llegue al repositorio remoto. |
-| **2. Aplicación estricta de RBAC y denegación implícita de acceso a grupos no asignados (Escenario C).** | **Security by Default** | El sistema se entrega configurado por defecto en un estado restrictivo (sin permisos), exigiendo la verificación explícita de la relación profesor-grupo para conceder acceso.           |
+| Decisión tomada en el mapa                                                                 | Concepto que representa | Justificación                                                                                                                                                                            |
+| :----------------------------------------------------------------------------------------- | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Uso de pre-commit hooks (`gitleaks`) para evitar subir tokens al repositorio.**       | **Shift Left**          | Traslada la detección de la vulnerabilidad al punto más temprano posible del ciclo de vida (el entorno local del desarrollador), impidiendo que el secreto llegue al repositorio remoto. |
+| **2. Aplicación estricta de RBAC y denegación implícita de acceso a grupos no asignados.** | **Security by Default** | El sistema se entrega configurado por defecto en un estado restrictivo (sin permisos), exigiendo la verificación explícita de la relación profesor-grupo para conceder acceso.           |
 
 ---
 
