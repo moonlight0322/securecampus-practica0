@@ -36,7 +36,7 @@ Carlos Santana
 
 ---
 
-## 4. Reflexión
+## Reflexión
 
 1. **¿Qué riesgo de SC-LAB-001 necesitó controles en más fases?**
 
@@ -52,7 +52,7 @@ Carlos Santana
 
 ---
 
-## 5. Pregunta de cierre
+## Pregunta de cierre
 
 > **¿Por qué la seguridad no es una fase final?**  
 > Porque la seguridad es un atributo de calidad transversal (_Secure SDLC_). Si se aborda como una revisión final, solo se detectan síntomas cuando el software ya está construido, resultando en parches costosos; si se integra desde los requisitos, previene las vulnerabilidades por diseño.
