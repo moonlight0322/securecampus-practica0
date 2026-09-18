@@ -4,7 +4,7 @@
 Ariadna Itzel Alvarez,
 Montserrat Hernandez,
 Luis Antonio Rivera,
-Carlos Ivan Santana García
+Carlos Ivan Santana
 
 **Fecha**:
 11 de Septiembre de 2026
@@ -77,18 +77,17 @@ flowchart TD
 
 **1. ¿Shift Left elimina la necesidad de seguridad en operación?**
 
-No. Shift Left minimiza y previene las fallas conocidas en etapas tempranas, pero la seguridad es una estrategia en capas (Defense in Depth). La fase de operación sigue siendo indispensable para:
-
-* Detectar vectores de ataque no contemplados y vulnerabilidades Zero-Day.
-* Monitorear eventos anómalos, intentos de fuerza bruta e intrusiones en tiempo real (vía WAF, SIEM o SOC).
-* Mantener la infraestructura subyacente, sistemas operativos y runtime continuamente parcheados.
+>No. Shift Left minimiza y previene las fallas conocidas en etapas tempranas, pero la seguridad es una estrategia en capas (Defense in Depth). La fase de operación sigue siendo indispensable para:
+>* Detectar vectores de ataque no contemplados y vulnerabilidades Zero-Day.
+>* Monitorear eventos anómalos, intentos de fuerza bruta e intrusiones en tiempo real (vía WAF, SIEM o SOC).
+>* Mantener la infraestructura subyacente, sistemas operativos y runtime continuamente parcheados.
 
 **2. ¿Por qué una funcionalidad puede cumplir su requisito funcional y seguir siendo insegura?**
 
-Porque la funcionalidad describe lo que el sistema debe hacer cuando los datos son válidos y la interacción es legítima, mientras que la seguridad define lo que el sistema NO debe permitir bajo entradas maliciosas, abuso de lógica o estados imprevistos.
-
-Por ejemplo: El requisito RF-010 cumplió funcionalmente al enviar el enlace y restablecer la clave; sin embargo, al no definir límites de vigencia ni de un solo uso, permitió vectores de abuso e impersonación de identidad.
+>Porque la funcionalidad describe lo que el sistema debe hacer cuando los datos son válidos y la interacción es legítima, mientras que la seguridad define lo que el sistema NO debe permitir bajo entradas maliciosas, abuso de lógica o estados imprevistos.
+>
+>Por ejemplo: El requisito RF-010 cumplió funcionalmente al enviar el enlace y restablecer la clave; sin embargo, al no definir límites de vigencia ni de un solo uso, permitió vectores de abuso e impersonación de identidad.
 
 **3. ¿Qué decisión de su equipo habría sido más barata de corregir antes?**
 
-La especificación técnica del Mecanismo de Expiración y Reutilización del Token de Recuperación (RF-010) en la fase de Requisitos/Diseño. Añadir la regla en Requisitos solo sería modificar unas líneas en el documento de especificación y desde aquí ya se tomaría en cuenta para el resto del proyecto.
+>La especificación técnica del Mecanismo de Expiración y Reutilización del Token de Recuperación (RF-010) en la fase de Requisitos/Diseño. Añadir la regla en Requisitos solo sería modificar unas líneas en el documento de especificación y desde aquí ya se tomaría en cuenta para el resto del proyecto.
