@@ -11,6 +11,16 @@ Carlos Santana
 
 <Desarrollo>
 
+## 5. Actividad guiada
+| Fase | ¿Qué debería hacerse? | Control / evidencia |
+| :--- | :--- | :--- |
+| **Requisitos** | Definir explícitamente que un estudiante solo debe tener acceso a sus propios registros de calificaciones. | Historia de usuario con criterio de aceptación: *"El sistema prohíbe el acceso a calificaciones cuya propiedad no pertenezca al usuario autenticado."* |
+| **Diseño** | Diseñar un esquema de autorización (ABAC/RBAC) que valide la relación entre el usuario autenticado y el recurso solicitado. | Diagrama de secuencia especificando la validación de propiedad (`estudiante_id == session.user_id`) antes de realizar la consulta en la base de datos. |
+| **Desarrollo** | Implementar la verificación estricta de autorización en el backend para el endpoint `/calificaciones/{id}`. | Código fuente con middleware de verificación de propiedad o anotación de seguridad (ej. `@PreAuthorize("hasPermission(#id, 'Calificacion', 'read')")`). |
+| **Pruebas** | Realizar pruebas unitarias y de penetración (DAST) manipulando parámetros de la URL para comprobar la restricción. | Script de prueba automatizado (ej. Postman o PyTest) enviando peticiones con IDs ajenos y verificando que el servidor responda `HTTP 403 Forbidden`. |
+| **Despliegue** | Validar la configuración del entorno de producción y del WAF para detectar manipulación de parámetros. | Pipeline de CI/CD verificado y reglas en el Web Application Firewall (WAF) para bloquear secuencias de peticiones anómalas. |
+| **Operación / Mantenimiento** | Monitorear e identificar intentos repetidos de acceso no autorizado o escaneo de identificadores. | Alertas en el sistema de logs/SIEM configuradas para notificar cuando un usuario genere múltiples errores `HTTP 403` al intentar cambiar IDs. |
+
 ## Reto por equipo
 
 | Escenario      | Situación                                                                                  |
