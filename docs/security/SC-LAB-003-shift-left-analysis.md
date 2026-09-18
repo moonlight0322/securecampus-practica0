@@ -7,7 +7,7 @@ Luis Antonio Rivera,
 Carlos Santana
 
 **Fecha**:
-11 de Septiembre de 2026
+18 de Septiembre de 2026
 
 ---
 
@@ -25,7 +25,8 @@ RF-010: «SecureCampus deberá permitir al usuario recuperar su contraseña». E
 
 **Threat Modeling**: Proceso estructurado para identificar, cuantificar y priorizar las vulnerabilidades y los riesgos de seguridad en un sistema o aplicación antes de que los atacantes puedan explotarlos
 
-## Reto integral - 3 situaciones
+
+## Reto integral -
 
 | Caso                  | Origen                                            | Descubrimiento                                         | Retrabajo / Impacto                                                                                                                                                          | Actividad Shift Left                                                                                                                                           | Control posterior                                                                                                                      |
 | --------------------- | ------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,8 +34,8 @@ RF-010: «SecureCampus deberá permitir al usuario recuperar su contraseña». E
 | **B · Upload**        | Requisitos / Diseño                               | Pruebas (Pentest) o Producción                         | Modificar controladores de subida, agregar librerías de desinfección/validación MIME, reconfigurar el almacenamiento (S3) y migrar/desinfectar archivos subidos previamente. | Establecer políticas de carga segura (lista blanca de extensiones, límite de tamaño, almacenamiento fuera del _web root_ y renombrado aleatorio) en el diseño. | Escaneo antivirus/antimalware asíncrono en el servidor de archivos y monitoreo de ejecución no autorizada.                             |
 | **C · Dependencia**   | Operación / Mantenimiento (Evolución de amenazas) | Producción (8 meses después de incorporar la librería) | Actualizar la versión de la biblioteca, validar compatibilidad con el código actual, ejecutar regresiones completas y actualizar contenedores/servidores.                    | Implementar análisis de composición de software (SCA) y gestión de dependencias (_Software Bill of Materials_ - SBOM) en el pipeline de CI/CD.                 | Alertas automatizadas de vulnerabilidades (ej. GitHub Dependabot), parches periódicos y monitoreo de vulnerabilidades conocidas (CVE). |
 
-## Escalera de costo cualitativa
 
+## Escalera de costo cualitativa
 ## Pregunta
 
 **¿Puede Shift Left ayudar con una vulnerabilidad que todavía no existía públicamente cuando desarrollamos?**
